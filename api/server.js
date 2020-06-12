@@ -7,9 +7,9 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 
 //set up router objects
-const usersRouter = require('../users/users-router.js');
-const authRouter = require('../auth/auth-router.js');
-const authenticator = require('../auth/authenticator.js');
+// const usersRouter = require('../users/user-router');
+// const authRouter = require('../auth/auth-router');
+// const authenticator = require('../auth/authenticator');
 
 //set up server object using express
 const server = express();
@@ -20,8 +20,8 @@ server.use(express.json());
 server.use(cors());
 
 //set up api routes
-server.use('/api/users', authenticator, usersRouter);
-server.use('/api/auth', authRouter);
+// server.use('/api/users', authenticator, usersRouter);
+// server.use('/api/auth', authRouter);
 
 //sanity test
 server.get('/', (req, res) => {
