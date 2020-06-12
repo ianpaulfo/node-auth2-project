@@ -7,15 +7,17 @@ const secrets = require('../api/secrets');
 //export function that verifies the token for the client
 module.exports = (req, res, next) => {
     //set up the token object based on the requested authorization
-    const token = req.headers.authorization.split(" ")[1];
+  
+    // const token = req.headers.authorization.split(" ")[1];
+    const { authorization } = req.headers;
 
     //set secret to the jsonwebtoken secret
     const secret = secrets.jwtSecret; 
 
     //verify the token
-    if(token) {
+    if(authorization) {
         //if the token is valid
-        jwt.verify(token, secret, (error, decodedToken) => {
+        jwt.verify(authorization, secret, (error, decodedToken) => {
             //if the token is valid, error will be undefined
             if (error) {
                 res.status(401).json({ message: 'Invalid token'})

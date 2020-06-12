@@ -25,7 +25,7 @@ server.use('/api/auth', authRouter);
 
 //sanity test
 server.get('/', (req, res) => {
-    res.json({api: 'All set!'});
+    res.json({api: 'Ready!'});
 });
 
 //export
